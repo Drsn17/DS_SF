@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="LWC PDF" icon="custom:custom23">
+        <lightning-input-rich-text
+            onchange={handleChange}
+            placeholder="Enter come text..."
+            value={textValue}
+            formats={allwedFormats}>
+        </lightning-input-rich-text>
+
+        <lightning-button 
+            label="Save PDF Attchement"
+            onclick = {saveAsPDF}
+            variant="brand">
+        </lightning-button>
+    </lightning-card>
+    
+</template>

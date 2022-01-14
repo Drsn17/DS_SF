@@ -1,0 +1,33 @@
+<template>
+    <lightning-card calss="slds-p-around_medium">
+        <lightning-formatted-text class="slds-p-around_small">
+            Image Below:
+        </lightning-formatted-text>
+        <img src={apple} alt="apple"/>
+        <img src={oneplus} alt="oneplus"/>
+        <img src={samsung} alt="samsung"/>
+        <img src={img1} alt="img1" width="100px" height="100px"/>
+    </lightning-card>
+
+    <lightning-card calss="slds-p-around_medium">
+        <lightning-formatted-text class="slds-p-around_small">
+            Image Below form File Object:
+        </lightning-formatted-text>
+        <img src={apple1} alt="apple"/>
+        <img src={oneplus1} alt="oneplus"/>
+        <img src={samsung1} alt="samsung"/>
+        <img src={img3} alt="img3" width="100px" height="100px"/>
+    </lightning-card>
+
+    <lightning-card class="slds-p-around_medium">
+        <p>Values Comes form Custom Label : {greeting}</p>
+    </lightning-card>
+
+    <lightning-card class="slds-p-around_medium">
+       <p> Today's Date formatted : {fromattedDate}</p> <br/>
+       <p> LANG': {lang}</p>
+       <p>DIR : {dir}</p>
+    </lightning-card>
+    
+    
+</template>

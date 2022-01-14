@@ -1,0 +1,18 @@
+<template>
+    <lightning-card 
+        title="Parent Component"
+        icon-name="custom:custom32"
+    >
+        <div class="slds-grid slds-wrap slds-p-around_medium">
+            <template for:each={listOfAccs} for:item="acc">
+                <div class="slds-size_small" key={acc.id}>
+                    <c-account-printer
+                        acc-info ={acc}
+                        print-id={handlePrint}>
+                    </c-account-printer>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+    
+</template>

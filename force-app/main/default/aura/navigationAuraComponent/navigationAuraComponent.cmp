@@ -1,0 +1,12 @@
+<aura:component implements="flexipage:availableForAllPageTypes,lightning:isUrlAddressable"
+    access="global">
+
+    <aura:attribute type="String" name="prepertyValue"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+    <lightning:card title="Aura COmponent For Navigation">
+        <p> This is Aura Component</p>
+        <p> This is From --- {!v.prepertyValue}</p>
+    </lightning:card>
+
+</aura:component>

@@ -1,0 +1,35 @@
+<template>
+    <div class="slds-card slds-p-around_medium">
+        <h1 class="header">First LWC Refrence</h1>
+        <p>{randomText}</p>
+        <label class="slds-form-element__label"></label>
+        <input type="text" class="slds-input" onkeyup={trackChange}/>
+
+        <button class="slds-button slds-button_brand" onclick={handleText}>
+            Click
+        </button>
+
+        <p>{loadValue}</p>
+
+        <button class="slds-button slds-button_brand" onclick={showData}>
+            {buttonLabel}
+        </button>
+
+        
+
+        <p>{ArrayString}</p>
+
+        <button class="slds-button slds-button_brand" onclick={randomDataFun}>
+            Random Data
+        </button>
+        
+        <p>{randomdata}</p>
+
+        <template if:true={isShown}>
+            <p class="slds-m-top_medium"> Template If</p>
+        </template>
+    </div>
+
+
+    
+</template>

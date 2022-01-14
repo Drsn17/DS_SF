@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Show all the Object Details" icon-name="custom:custom23">
+        <lightning-layout class="slds-p-around_small">
+            <lightning-layout-item>
+                
+                <!--Showing the objects Name as a navigation item -->
+                <c-object-navigation-items onselect={handleSelectedItem}></c-object-navigation-items>
+    
+                <template if:true={selectedObject}>
+                    <!--Showing the Card form preview-->
+                    <c-record-card-view list-of-records={listOfRecords} selected-object={selectedObject}></c-record-card-view>
+                </template>
+                
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card> 
+</template>

@@ -1,0 +1,40 @@
+<template>
+    <div class="slds-grid slds-wrap slds-p-around_medium">
+        <template for:each={listOfOpportunities} for:item="Opportunity">
+            <lightning-card  
+                title={opportunity.Name}
+                key={opportunity.Id}
+                class="slds-p-around_medium slds-size_1-of-3">
+                <div class="slds-p-around_medium">
+                    <lightning-input label="Opportunity Name" name="OpportunityName" value={Opportunity.Name} onchange={handleChange}></lightning-input>
+                    <lightning-input label="Stage" name="stage" value={Opportunity.StageName} onchange={handleChange}></lightning-input>
+                    <lightning-input label="Type" name="type" value={Opportunity.Type} onchange={handleChange}></lightning-input>
+                </div>
+
+                <div class="slds-p-around_medium">
+                    <lightning-button
+                        value={opportunity.Id}
+                        label="Delete"
+                        onclick={deleteOpportunity}
+                        variant="destructive"
+                        class="slds-m-around_small"
+                    >
+                    </lightning-button>
+                    <lightning-button
+                        value={opportunity.Id}
+                        label="Update"
+                        onclick={updateOpportunity}
+                        variant="brand"
+                        class="slds-m-around_small"
+                    >
+                    </lightning-button>
+                </div>
+
+
+            </lightning-card>
+        </template>
+        
+        </div>
+    
+    
+</template>

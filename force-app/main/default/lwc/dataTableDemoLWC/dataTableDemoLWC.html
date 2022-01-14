@@ -1,0 +1,21 @@
+<template>
+    <lightning-card  title="Account Details">
+        <lightning-button label="New" slot="actions"></lightning-button>
+        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+       
+    <lightning-datatable
+            key-field="id"
+            columns={columns}
+            data={data2}
+            hide-checkbox-column
+            default-sort-direction={defaultSortDirection}
+            sorted-direction={sortDirection}
+            sorted-by={sortedBy}
+            onsort={onHandleSort}>
+    </lightning-datatable>
+
+    <p slot="footer">Card Footer</p>
+</lightning-card>
+
+
+</template>

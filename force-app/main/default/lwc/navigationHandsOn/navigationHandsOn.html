@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title = "Hands on Navigation with pick List" icon-name="custom:custom30">
+        <div class="slds-p-around_small">
+            <lightning-layout>
+                <lightning-layout-item padding="around-medium">
+                    <lightning-input 
+                    name="sobject" 
+                    label="S Object Name"
+                    class="slds-p-around_small"
+                    >
+                </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-medium">
+                    <lightning-combobox
+                    name="mode"
+                    label="Mode"
+                    value={value}
+                    placeholder="Mode"
+                    options={options}
+                    onchange={handleModeChange} 
+                    class="slds-p-around_small">
+                </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-medium">
+                    <template if:true = {isNotCreated}>
+                        <lightning-input 
+                            name="ids" 
+                            label={idLabel}
+                            class="slds-p-around_small"
+                        >
+                    </lightning-input>
+                    </template>
+                </lightning-layout-item>
+            </lightning-layout>  
+            
+            <lightning-button name="navigation" label="Navigation" type="brand" onclick={handleNavigation}></lightning-button>
+
+        </div>
+    </lightning-card>
+    
+</template>

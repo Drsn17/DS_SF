@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Get Picklist Values" icon-name="custom:custom44">
+        <div class="slds-m-around_medium">
+            <template if:true={industryField.data}>
+                <lightning-combobox 
+                    name="Industry" 
+                    label="Industry" 
+                    value={value} 
+                    options={industryField.data.values}
+                    onchange={handleChange}>
+
+                </lightning-combobox>
+                <p>Selected value is: {value}</p>
+            </template>
+            <template if:true={industryField.error}>
+                <p> Error Fetching Contact to Admin</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,10 @@
+<template>
+    <div class="slds-card slds-p-around_medium">
+        <p class="slds-p-around_small">In the Child Component - {pubValue}</p>
+        <template if:true={isShown}>
+            <p class="slds-text-align_center">Rerender Conditionally from parent</p>
+        </template>
+    </div>
+    
+   
+</template>

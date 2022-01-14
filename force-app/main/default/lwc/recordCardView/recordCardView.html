@@ -1,0 +1,28 @@
+<template>
+    <lightning-layout-item>
+        <div class="slds-grid slds-wrap slds-p-around_medium">
+            <template for:each={listOfRecords} for:item="eachRecord">
+                <lightning-card key={eachRecord.Id}
+                                class="slds-p-around_medium slds-size_1-of-3">
+                    
+                    <p class="slds-m-around_small">{eachRecord.Phone}</p>
+                    <p class="slds-m-around_small">{eachRecord.Website}</p>
+                    <p class="slds-m-around_small">{eachRecord.Industry}</p>
+                    
+                    <lightning-button label="Preview"
+                                      variant="success"
+                                      class="slds-m-around_small"
+                                      onclick={onPreview}>
+                    </lightning-button>
+                </lightning-card>
+            </template>
+
+            <template if:true={selectedRecordId}>
+                <!-- third component-->
+                <c-preview-record-component selected-object-name={selectedObject} 
+                                            selected-record-id={selectedRecordId}>
+                </c-preview-record-component>
+            </template>
+        </div>
+    </lightning-layout-item>
+</template>

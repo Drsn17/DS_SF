@@ -1,0 +1,119 @@
+<template>
+    <lightning-card  title="Hello">
+        <lightning-button label="New" slot="actions" onclick={openModal}></lightning-button>
+        <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+        <template if:true={isModalOpen}>
+            <!-- Modal/Popup Box LWC starts here -->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box LWC header here -->
+                    <header class="slds-modal__header" >
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Select Files</h2>
+                    </header>
+                    <!-- Modal/Popup Box LWC body starts here -->
+                    <div class="slds-modal__content slds-p-horizontal_medium" id="modal-content-id-1">
+                        <lightning-layout multiple-rows>
+                            <lightning-layout-item size="5" padding=" horizontal-small">
+                                        <lightning-file-upload
+                                                variant="label-hidden"
+                                                name="fileUploader"
+                                                accept={acceptedFormats}
+                                                record-id="0012w00000AUnB3AAL"
+                                                onuploadfinished={handleUploadFinished}
+                                                multiple>
+                                        </lightning-file-upload>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="7" class="slds-p-top_large slds-p-right_small">
+                                    <lightning-input variant="label-hidden" 
+                                        label="Search Record" value={searchKey} type="search"
+                                         placeholder="Search file">
+                                    </lightning-input>
+                            </lightning-layout-item>
+
+                            <lightning-layout-item size="12" padding="around-small">
+                                    <lightning-tabset variant="vertical">
+                                        <lightning-tab label="Owned by Me">
+                                                <ul>
+                                                    <template for:each={data} for:item="temp">
+                                                        <lightning-card key={temp.Id}>
+                                                            <li key={temp.Id}>
+                                                                <lightning-layout multiple-rows class="slds-border_bottom">
+                                                                    <lightning-layout-item size="1">
+                                                                        <lightning-input type="checkbox" label="Basic option" variant="label-hidden" name="input1"></lightning-input>
+                                                                    </lightning-layout-item>
+                                                                    <lightning-layout-item size="1">
+                                                                        <lightning-icon icon-name="doctype:image" alternative-text="Image file" title="Image"></lightning-icon>
+                                                                    </lightning-layout-item>
+                                                                    <lightning-layout-item size="6">
+                                                                       <div style="color:skyblue"><h2>{temp.Title}</h2></div> 
+                                                                       <p>{temp.ContentModifiedDate} {temp.ContentSize} {temp.FileType}</p>
+                                                                    </lightning-layout-item>
+                                                                </lightning-layout>
+                                                            </li>
+                                                        </lightning-card>
+                                                    </template>
+                                                </ul>
+                                        </lightning-tab>
+                                        <lightning-tab label="Shared With Me" title="2nd tab extended title">
+                                            Shared With Me !
+                                        </lightning-tab>
+                                        <lightning-tab label="Recent">
+                                            Recent !
+                                        </lightning-tab>
+                                        <lightning-tab label="Following">
+                                            Following !
+                                        </lightning-tab>
+                                        <lightning-tab label="Libraies">
+                                            <template if:true={isLibariesData}>
+                                                <ul>
+                                                    <template for:each={librariesData} for:item="libData">
+                                                    <li key={libData.key}>
+                                                        <div onclick={OpenLibrariesMethod} style="cursor: pointer;" class="myDiv">
+                                                        <lightning-layout multiple-rows class="slds-border_bottom">
+                                                            <lightning-layout-item size="2" class="slds-p-top_x-small">
+                                                                <lightning-icon icon-name="utility:identity" alternative-text="Image file" title=""></lightning-icon>
+                                                            </lightning-layout-item>
+                                                            <lightning-layout-item size="8" class="slds-p-top_x-small">
+                                                                <span>{libData.key}</span>
+                                                            </lightning-layout-item>
+                                                            <lightning-layout-item size="2" class="slds-p-top_x-small">
+                                                                <lightning-icon icon-name="utility:right" alternative-text="Image file" title="Image" class="slds-float_right"></lightning-icon>
+                                                            </lightning-layout-item>
+                                                        </lightning-layout>
+                                                    </div>
+                                                    </li>
+                                                    </template>
+                                                </ul>
+                                            </template>
+                                            <template if:true={isLibariesValues}>
+                                                <a href="#" onclick={onLiabriesBack}>back</a>
+                                            </template>
+                                            
+                                        </lightning-tab>
+                                        <lightning-tab label="Related Files">
+                                            Related Files
+                                        </lightning-tab>
+                                    </lightning-tabset>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                    <!-- Modal/Popup Box LWC footer starts here -->
+                    <footer class="slds-modal__footer">
+                        <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                        <button class="slds-button slds-button_brand" onclick={submitDetails} title="Add">Add</button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+        <p slot="footer">Card Footer</p>
+    </lightning-card>
+</template>

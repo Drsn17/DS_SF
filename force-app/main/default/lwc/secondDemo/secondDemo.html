@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-card slds-p-around_medium">
+        <h1>LWC Component</h1>
+
+        <label class="slds-form-element__label">Name</label>
+        <input type="text" class="slds-input" onkeyup={trackChange} name="name" />
+
+        <label class="slds-form-element__label">Age</label>
+        <input type="text" class="slds-input" onkeyup={trackChange} name="age" />
+
+        <label class="slds-form-element__label">Origin</label>
+        <input type="text" class="slds-input" onkeyup={trackChange} name="origin" />
+
+        <button class="slds-button slds-button_brand slds-m-top_medium" onclick={handleText}>
+            Click
+
+        </button>
+
+        <template if:true={isShown}>
+            <p class="slds-m-top_medium">
+                I'm {name}, I'm {age} and I'm from {origin}
+            </p>
+
+
+        </template>
+        
+        </div>
+</template>

@@ -1,0 +1,20 @@
+<template>
+    <lightning-card
+        title={accInfo.Name}
+        icon-name="custom:custom32"
+        class="slds-p-around_medium"
+        >
+        <p class="slds-m-around_small">{accInfo.Phone}</p>
+        <p class="slds-m-around_small">{accInfo.Website}</p>
+        <p class="slds-m-around_small">{accInfo.Industry}</p>
+
+        <lightning-button 
+            value={info.Id}
+            variant="brand"
+            label="Print"
+            class="slds-p-around_medium"
+        >
+    </lightning-button>
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="PIcklist value by Record Type" icon-name="custom:custom44">
+        <div class="slds-m-around_medium">
+            <template if:true={accountIndustryValues}>
+                <lightning-combobox 
+                    name="Industry"
+                    label="Industry"
+                    options={accountIndustryValues}
+                    value={industryValue}
+                    onchange={handleChange}>
+                
+                </lightning-combobox>
+
+                <p> Values is: {industryValue}</p>
+            </template>
+
+            <template if:true={accountTypeValues}>
+                <lightning-combobox 
+                    name="Type"
+                    label="Type"
+                    options={accountTypeValues}
+                    value={typeValue}
+                    onchange={handleChange}>
+                
+                </lightning-combobox>
+
+                <p> Values is: {typeValue}</p>
+             
+            </template>
+        </div>
+
+    </lightning-card>
+    
+</template>

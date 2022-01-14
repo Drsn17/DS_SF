@@ -1,0 +1,35 @@
+<template>
+    <div class="slds-card slds-p-around_medium">
+        <p class="slds-p-around_small output-text">Click on the button to show data</p>
+        <button class="slds-button slds-button_brand  ctrl-btn" onclick={handleshowtable}>
+            Show Table
+        </button>
+
+        <template if:true={showtable}>
+            <div>
+                <table class="slds-table slds-table_bordered">
+                    <thead>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </thead>
+                    <tbody>
+                        <template for:each={trainess} for:item="trainee">
+                            <tr key={trainee.Id}>
+                                <td>{trainee.id}</td>
+                                <td>{trainee.Name}</td>
+                                <td>{trainee.Dept}</td>
+                                <td>{trainee.Age}</td>
+
+                            </tr>
+
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </template>
+            
+        
+    </div>
+    
+</template>

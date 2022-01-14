@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Contact Display" icon-name="standard:Contact">
+        <template for:each={contactObjList} for:item="conObj">
+            <div class="slds-p-around_medium" key={conObj.Id}>
+                <lightning-card title={conObj.Name}>
+                    <lightning-record-view-form
+                        record-id={conObj.Id}
+                        object-api-name="Contact">
+                    <div class="slds-box">
+                        <lightning-output-field field-name="Name">
+                        </lightning-output-field>
+                        <lightning-output-field field-name="Email">
+                        </lightning-output-field>
+                    </div>
+                </lightning-record-view-form>
+                </lightning-card>
+            </div>
+        </template>
+    </lightning-card>
+    
+</template>

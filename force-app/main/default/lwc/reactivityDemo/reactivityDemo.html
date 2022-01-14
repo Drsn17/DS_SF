@@ -1,0 +1,13 @@
+<template>
+    <div class="slds-card slds-p-around_medium">
+        <p class="slds-m-bottom_small">{reactiveData}</p>
+        <button class="slds-button slds-button_brand">Reactive Button</button>
+
+        <button class="slds-button slds-button_brand">Array Button</button>
+
+        <template for:each={handleArrayClick} for:item="arValue">
+            <p key={arValue}>{arValue}</p>
+        </template>
+    </div>
+    
+</template>
